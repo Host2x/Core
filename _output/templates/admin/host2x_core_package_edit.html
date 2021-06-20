@@ -1,0 +1,45 @@
+<xf:if is="$package.isInsert()">
+	<xf:title>{{ phrase('host2x_core_add_package') }}</xf:title>
+<xf:else />
+	<xf:title>{{ phrase('host2x_core_edit_package:') }} {$package.name}</xf:title>
+</xf:if>
+
+<xf:pageaction if="$package.isUpdate()">
+	<xf:button href="{{ link('host2x/packages/delete', $package) }}" icon="delete" overlay="true" />
+</xf:pageaction>
+
+<xf:form action="{{ link('host2x/packages/save', $package) }}" ajax="true" class="block">
+	<div class="block-container">
+		<div class="block-body">
+			<xf:selectrow name="type" value="{$package.type}"
+					label="{{ phrase('host2x_core_type') }}"
+					class="input--autoSize">
+				<xf:option value="Free" label="Free" />
+				<xf:option value="Paid" label="Paid" />
+				<xf:option value="P2H" label="P2H" />
+			</xf:selectrow>
+			<xf:textboxrow name="name" value="{$package.name}" label="{{ phrase('name') }}" />
+			<xf:textarearow name="description" value="{$package.description}" autosize="true"
+				label="{{ phrase('description') }}"
+				hint="{{ phrase('you_may_use_html') }}"
+				explain="{{ phrase('host2x_core_description_explain') }}" />
+			<xf:numberboxrow name="required_posts" value="{$package.required_posts}" min="0" step="1"
+				label="{{ phrase('host2x_core_required_posts') }}" />
+			<xf:numberboxrow name="monthly_posts" value="{$package.monthly_posts}" min="0" step="1"
+				label="{{ phrase('host2x_core_monthly_posts') }}" />
+			<xf:textboxrow name="price" value="{{ $package.price ?: 0 }}" label="{{ phrase('cost') }}" />
+			<xf:numberboxrow name="order" value="{$package.order}" min="0" step="1"
+				label="{{ phrase('display_order') }}" />
+			<xf:checkboxrow name="enabled" value="{$package.enabled}">
+					<xf:option value="1"
+						label="{{ phrase('enabled') }}"
+						hint="{{ phrase('host2x_core_package_enable') }}" />
+				</xf:checkboxrow>
+			<xf:submitrow sticky="true" icon="save" data-ajax-redirect="{{ $package.isInsert() ? '1' : '0' }}">
+				<xf:html>
+					<xf:button type="submit" icon="save" name="exit">{{ phrase('save_and_exit') }}</xf:button>
+				</xf:html>
+			</xf:submitrow>
+		</div>
+	</div>
+</xf:form>

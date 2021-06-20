@@ -1,0 +1,51 @@
+<xf:h1>Client Area</xf:h1>
+
+<xf:css>
+	.statsOuter{
+	}
+	.host2xStats{
+		width: 33.333333%;
+		float: left;
+		text-align: center;
+	}
+	.host2x-stats-text {
+		font-size: 32px;
+	}
+</xf:css>
+
+<div class="block">
+	<div class="block-container">
+		<div class="block-body statsOuter u-clearFix">
+			<div class="host2xStats">
+				<div class="block-row">
+					<h3 class="block-textHeader">
+						<a href="{{ link('clientarea/packages') }}">Packages</a>
+					</h3>
+					<div class="host2x-stats-text">
+						{$packageCount|number}
+					</div>
+				</div>
+			</div>
+			<div class="host2xStats">
+				<div class="block-row">
+					<h3 class="block-textHeader">
+						<a href="#">Support Tickets</a>
+					</h3>
+					<div class="host2x-stats-text">
+						0
+					</div>
+				</div>
+			</div>
+			<div class="host2xStats">
+				<div class="block-row">
+					<h3 class="block-textHeader">
+						<a href="#">Unpaid Invoices</a>
+					</h3>
+					<div class="host2x-stats-text">
+						{$unpaidInvoiceCount|number}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

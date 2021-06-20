@@ -1,0 +1,11 @@
+{
+    "route_type": "public",
+    "route_prefix": "clientarea",
+    "sub_name": "",
+    "format": "",
+    "build_class": "",
+    "build_method": "",
+    "controller": "Host2x\\Core:ClientArea",
+    "context": "",
+    "action_prefix": ""
+}

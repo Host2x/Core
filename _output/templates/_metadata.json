@@ -1,0 +1,47 @@
+{
+    "admin/host2x_core_package_edit.html": {
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "b71eb93157cff9c23b7f34e9df4d383e"
+    },
+    "admin/host2x_core_package_list.html": {
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "f3fb97c4b95994b5f6f5bb4f5d116ff5"
+    },
+    "admin/host2x_core_package_server.html": {
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "837f679667cdf3339c618384856cc4ef"
+    },
+    "admin/host2x_core_server_edit.html": {
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "812f5281c2235c6770b8f2e1559a8d2a"
+    },
+    "admin/host2x_core_server_list.html": {
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "be68c2055c7ebff3782202142dd32aa1"
+    },
+    "admin/host2x_core_subdomain_edit.html": {
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "af8237a16dbeb09636335b3e806d2f87"
+    },
+    "admin/host2x_core_subdomain_list.html": {
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "577c36cfc31457807d54633d10157140"
+    },
+    "public/host2x_core_clientarea.html": {
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "2d689eaf64a560b5e98ae5b1a03f56f8"
+    },
+    "public/host2x_core_clientarea_packages.html": {
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "a5c4ae49c4e9cbad9291320573cca2de"
+    }
+}

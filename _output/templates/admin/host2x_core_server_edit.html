@@ -1,0 +1,38 @@
+<xf:if is="$server.isInsert()">
+	<xf:title>{{ phrase('host2x_core_add_server') }}</xf:title>
+<xf:else />
+	<xf:title>{{ phrase('host2x_core_edit_server:') }} {$server.name}</xf:title>
+</xf:if>
+
+<xf:pageaction if="$server.isUpdate()">
+	<xf:button href="{{ link('host2x/servers/delete', $server) }}" icon="delete" overlay="true" />
+</xf:pageaction>
+
+<xf:form action="{{ link('host2x/servers/save', $server) }}" ajax="true" class="block">
+	<div class="block-container">
+		<div class="block-body">
+			<xf:selectrow name="type" value="{$server.type}"
+					label="{{ phrase('host2x_core_type') }}"
+					class="input--autoSize">
+				<xf:option value="WHM" label="WHM" />
+				<xf:option value="DirectAdmin" label="DirectAdmin" />
+			</xf:selectrow>
+			<xf:textboxrow name="name" value="{$server.name}" label="{{ phrase('name') }}" />
+			<xf:textboxrow name="hostname" value="{$server.hostname}" label="{{ phrase('host2x_core_hostname') }}" />
+			<xf:textboxrow name="username" value="{$server.username}" label="{{ phrase('host2x_core_username') }}" />
+			<xf:passwordboxrow name="password" value="{$server.password}" label="{{ phrase('password') }}"
+				explain="{{ phrase('host2x_core_password_change') }}"/>
+			<xf:textboxrow name="apikey" value="{$server.apikey}" label="{{ phrase('host2x_core_apikey') }}" />
+			<xf:checkboxrow name="is_premium" value="{$server.is_premium}">
+					<xf:option value="1"
+						label="{{ phrase('host2x_core_is_premium') }}"
+						hint="{{ phrase('host2x_core_make_premium') }}" />
+				</xf:checkboxrow>
+			<xf:submitrow sticky="true" icon="save" data-ajax-redirect="{{ $server.isInsert() ? '1' : '0' }}">
+				<xf:html>
+					<xf:button type="submit" icon="save" name="exit">{{ phrase('save_and_exit') }}</xf:button>
+				</xf:html>
+			</xf:submitrow>
+		</div>
+	</div>
+</xf:form>

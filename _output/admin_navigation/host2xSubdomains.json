@@ -1,0 +1,10 @@
+{
+    "parent_navigation_id": "host2xCore",
+    "display_order": 3,
+    "link": "host2x/subdomains",
+    "icon": "",
+    "admin_permission_id": "",
+    "debug_only": false,
+    "development_only": false,
+    "hide_no_children": false
+}

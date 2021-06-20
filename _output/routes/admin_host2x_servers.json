@@ -1,0 +1,11 @@
+{
+    "route_type": "admin",
+    "route_prefix": "host2x",
+    "sub_name": "servers",
+    "format": "servers/:int<server_id,name>/",
+    "build_class": "",
+    "build_method": "",
+    "controller": "Host2x\\Core:Server",
+    "context": "",
+    "action_prefix": ""
+}

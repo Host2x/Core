@@ -1,0 +1,11 @@
+{
+    "route_type": "admin",
+    "route_prefix": "host2x",
+    "sub_name": "subdomains",
+    "format": "subdomains/:int<subdomain_id,subdomain>/",
+    "build_class": "",
+    "build_method": "",
+    "controller": "Host2x\\Core:Subdomain",
+    "context": "",
+    "action_prefix": ""
+}

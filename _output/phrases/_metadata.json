@@ -1,0 +1,176 @@
+{
+    "admin_navigation.host2xCore.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "2b5bc734ffdd5f02ceca2d2536894f43"
+    },
+    "admin_navigation.host2xPackages.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "27fe4eb3edbaff8f250e2d51f7462681"
+    },
+    "admin_navigation.host2xServers.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "ac659513b2353187192e88c5d1988228"
+    },
+    "admin_navigation.host2xSubdomains.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "51e2fe0e1a41fe9fec46ae2129bb8513"
+    },
+    "host2x_core_add_package.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "26b9af388b364f6c6690bf08194618e1"
+    },
+    "host2x_core_add_server.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "003744a685f896a2d9764655f67f1a24"
+    },
+    "host2x_core_add_subdomain.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "685c66df51add65f23d49ddaab3ddf4c"
+    },
+    "host2x_core_apikey.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "2e5e61c17add3609c6786a4c9ce1a279"
+    },
+    "host2x_core_description_explain.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "343756da9a76fad2a8b5352aefd5cecb"
+    },
+    "host2x_core_edit_package.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "7cd822c66af673c26fcfd5dcae032de0"
+    },
+    "host2x_core_edit_server.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "7dce122004969d56ae2e0245cb754d35"
+    },
+    "host2x_core_edit_subdomain.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "2345f8f718417cb44bfc5d6f59380090"
+    },
+    "host2x_core_hostname.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "c8f4b8c435b3d99a66e1b91bec60737c"
+    },
+    "host2x_core_is_premium.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "3512daffb9140355a46daa105072e04c"
+    },
+    "host2x_core_make_premium.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "3105a96b8c4936810b1ecdcd874da314"
+    },
+    "host2x_core_monthly_posts.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "936780330ece5597221905dc86a6c68b"
+    },
+    "host2x_core_package_enable.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "dc50c25cf85fb13259c792b4e1da34ea"
+    },
+    "host2x_core_package_not_found.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "abc373de139825d2a5886f5a86ddc3c2"
+    },
+    "host2x_core_package_servers.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "1130920498f995bf71788916712bfbe8"
+    },
+    "host2x_core_packages.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "27fe4eb3edbaff8f250e2d51f7462681"
+    },
+    "host2x_core_password_change.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "a44a4b3984d5f0d5402ee896669d82a9"
+    },
+    "host2x_core_required_posts.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "196492f515246d9e758d9d12a38cc6ee"
+    },
+    "host2x_core_server_not_found.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "128f3d64d5a0f38b2207ceec4e4266a5"
+    },
+    "host2x_core_servers.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "ac659513b2353187192e88c5d1988228"
+    },
+    "host2x_core_subdomain.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "beed05bccb8b6f21466910eb4a4f142b"
+    },
+    "host2x_core_subdomain_enable.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "c2c24e67a9001d47b8239cb460c0f0b1"
+    },
+    "host2x_core_subdomains.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "51e2fe0e1a41fe9fec46ae2129bb8513"
+    },
+    "host2x_core_type.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "a1fa27779242b4902f7ae3bdd5c6d508"
+    },
+    "host2x_core_username.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "f6039d44b29456b20f8f373155ae4973"
+    }
+}

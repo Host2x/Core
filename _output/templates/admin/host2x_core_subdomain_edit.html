@@ -1,0 +1,27 @@
+<xf:if is="$subdomain.isInsert()">
+	<xf:title>{{ phrase('host2x_core_add_subdomain') }}</xf:title>
+<xf:else />
+	<xf:title>{{ phrase('host2x_core_edit_subdomain:') }} {$subdomain.subdomain}</xf:title>
+</xf:if>
+
+<xf:pageaction if="$subdomain.isUpdate()">
+	<xf:button href="{{ link('host2x/subdomains/delete', $subdomain) }}" icon="delete" overlay="true" />
+</xf:pageaction>
+
+<xf:form action="{{ link('host2x/subdomains/save', $subdomain) }}" ajax="true" class="block">
+	<div class="block-container">
+		<div class="block-body">
+			<xf:textboxrow name="subdomain" value="{$subdomain.subdomain}" label="{{ phrase('host2x_core_subdomain') }}" />
+			<xf:checkboxrow name="enabled" value="{$subdomain.enabled}">
+					<xf:option value="1"
+						label="{{ phrase('enabled') }}"
+						hint="{{ phrase('host2x_core_subdomain_enable') }}" />
+			</xf:checkboxrow>
+			<xf:submitrow sticky="true" icon="save" data-ajax-redirect="{{ $subdomain.isInsert() ? '1' : '0' }}">
+				<xf:html>
+					<xf:button type="submit" icon="save" name="exit">{{ phrase('save_and_exit') }}</xf:button>
+				</xf:html>
+			</xf:submitrow>
+		</div>
+	</div>
+</xf:form>

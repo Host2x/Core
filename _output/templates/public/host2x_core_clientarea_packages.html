@@ -1,0 +1,28 @@
+<xf:h1>Packages</xf:h1>
+<xf:if is="$packages is not empty">
+	<xf:foreach loop="$packages" value="$package">
+		<xf:macro name="thread_block"
+			arg-package="{$package}"		
+		/>
+	</xf:foreach>
+
+	<xf:pagenav page="{$page}" perpage="{$perPage}" total="{$total}" link="clientarea" wrapperclass="block" />
+<xf:else />
+	<div class="blockMessage">You have no packages yet.</div>
+</xf:if>
+
+<xf:macro name="thread_block" arg-package="!">
+	<xf:css src="message.less" />
+
+	<div class="block">
+		<div class="block-container" data-xf-init="lightbox">
+			<h4 class="block-header"><a href="">{$package.Package.name}</a></h4>
+			<div class="block-body">
+				{$package.status}
+			</div>
+			<div class="block-footer">
+				<a href="">Manage Package...</a>
+			</div>
+		</div>
+	</div>
+</xf:macro>

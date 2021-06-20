@@ -1,0 +1,35 @@
+<xf:title>{{ phrase('host2x_core_packages') }}</xf:title>
+
+<xf:pageaction>
+	<xf:button href="{{ link('host2x/packages/add') }}" icon="add">{{ phrase('host2x_core_add_package') }}</xf:button>
+</xf:pageaction>
+
+<xf:if is="$packages is not empty">
+	<xf:form action="{{ link('host2x/packages/toggle') }}" class="block" ajax="true">
+		<div class="block-outer">
+			<xf:macro template="filter_macros" name="quick_filter" arg-key="host2x-package" arg-class="block-outer-opposite" />
+		</div>
+		<div class="block-container">
+			<div class="block-body">
+				<xf:datalist>
+					<xf:foreach loop="$packages" value="$package">
+						<xf:datarow>
+							<xf:cell class="dataList-cell--link dataList-cell--main" hash="{$package.package_id}">
+								<a href="{{ link('host2x/packages/edit', $package) }}">
+									<div class="dataList-mainRow">{$package.name}</div>
+								</a>
+							</xf:cell>
+							<xf:action
+								href="{{ link('host2x/packages/servers', $package) }}">
+								{{ phrase('host2x_core_servers') }}
+							</xf:action>
+							<xf:delete href="{{ link('host2x/packages/delete', $server) }}" />
+						</xf:datarow>
+					</xf:foreach>
+				</xf:datalist>
+			</div>
+		</div>
+	</xf:form>
+<xf:else />
+	<div class="blockMessage">{{ phrase('no_items_have_been_created_yet') }}</div>
+</xf:if>
