@@ -46,11 +46,13 @@ class Server extends AbstractController
         $input = $this->filter([
             'type' => 'str',
             'name' => 'str',
+            'port' => 'int',
             'hostname' => 'str',
             'username' => 'str',
             'password' => 'str',
             'apikey' => 'str',
-            'is_premium' => 'bool'
+            'is_premium' => 'bool',
+            'use_ssl' => 'bool'
         ]);
 
         if ($server->isUpdate() && empty($input['password']))

@@ -1,11 +1,11 @@
-<xf:title>{{ phrase('host2x_core_package_servers:') }} {$package.name}</xf:title>
+<xf:title>{{ phrase('host2x_core_plan_servers:') }} {$plan.name}</xf:title>
 
 <xf:pageaction>
-	<xf:button href="{{ link('host2x/packages/servers/add', $package) }}" icon="add">{{ phrase('host2x_core_add_server') }}</xf:button>
+	<xf:button href="{{ link('host2x/plans/servers/add', $plan) }}" icon="add">{{ phrase('host2x_core_add_server') }}</xf:button>
 </xf:pageaction>
 
 <xf:if is="$servers is not empty">
-	<xf:form action="{{ link('host2x/packages/servers', $package) }}" class="block">
+	<xf:form action="{{ link('host2x/plans/servers', $plan) }}" class="block">
 		<xf:if is="!$showingAll">
 			<div class="block-outer">
 				<div class="block-outer-main">
@@ -17,7 +17,7 @@
 						<div class="menu-content">
 							<h3 class="menu-header">{{ phrase('sort_by...') }}</h3>
 							<xf:foreach loop="$sortOptions" key="$sortKey" value="$sortName">
-								<a href="{{ link('host2x/packages/servers', $package, {'criteria': $criteria, 'order': $sortKey}) }}"
+								<a href="{{ link('host2x/plans/servers', $plan, {'criteria': $criteria, 'order': $sortKey}) }}"
 									class="menu-linkRow {{ $order == $sortKey ? 'is-selected' : '' }}">
 									{$sortName}
 								</a>
@@ -26,7 +26,7 @@
 					</div>
 				</div>
 				<xf:macro template="filter_macros" name="quick_filter" arg-key="servers"
-					arg-ajax="{{ link('host2x/packages/servers', $package, {'criteria': $criteria}) }}"
+					arg-ajax="{{ link('host2x/plans/servers', $plan, {'criteria': $criteria}) }}"
 					arg-class="block-outer-opposite" />
 			</div>
 		</xf:if>
@@ -35,8 +35,8 @@
 				<xf:datalist>
 					<xf:foreach loop="$servers" value="$server">
 						<xf:datarow>
-							<xf:main href="{{ link('host2x/packages/servers/edit', $package, {'server_id': $server.server_id}) }}" label="{$server.name}" />
-							<xf:delete href="{{ link('host2x/packages/servers/remove', $package, {'server_id': $server.server_id}) }}" />
+							<xf:main href="{{ link('host2x/plans/servers/edit', $plan, {'server_id': $server.server_id}) }}" label="{$server.name}" />
+							<xf:delete href="{{ link('host2x/plans/servers/remove', $plan, {'server_id': $server.server_id}) }}" />
 						</xf:datarow>
 					</xf:foreach>
 					<xf:if is="$filter AND $total > $perPage">
@@ -53,7 +53,7 @@
 		</div>
 
 		<xf:pagenav page="{$page}" perpage="{$perPage}" total="{$total}"
-			link="host2x/packages/servers"
+			link="host2x/plans/servers"
 			params="{{ {'criteria': $criteria, 'order': $order, 'direction': $direction} }}"
 			wrapperclass="js-filterHide block-outer block-outer--after" />
 	</xf:form>

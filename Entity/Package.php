@@ -7,21 +7,21 @@ use XF\Mvc\Entity\Structure;
 
 /**
  * COLUMNS
- * @property int|null $package_id
- * @property string $type
- * @property string $name
- * @property string $description
- * @property int $required_posts
- * @property int $monthly_posts
- * @property float $price
- * @property int $order
- * @property bool $enabled
+ * @property int|null $user_package_id
+ * @property int $server_id
+ * @property int $package_id
+ * @property string $username
+ * @property string $domain
+ * @property string $status
+ * @property string $billing_type
  *
  * RELATIONS
- * @property \XF\Mvc\Entity\AbstractCollection|Server[] Servers
+ * @property \XF\Entity\User User
+ * @property Plan Package
  */
 class Package extends Entity
 {
+
     public static function getStructure(Structure $structure)
     {
         $structure->table = 'host2x_packages';
@@ -30,35 +30,33 @@ class Package extends Entity
 
         $structure->columns = [
             'package_id' => ['type' => self::UINT, 'autoIncrement' => true, 'nullable' => true],
-            'type' => ['type' => self::STR, 'required' => true],
-            'name' => ['type' => self::STR, 'required' => true],
-            'description' => ['type' => self::STR, 'required' => true],
-            'required_posts' => ['type' => self::UINT, 'default' => 0],
-            'monthly_posts' => ['type' => self::UINT, 'default' => 0],
-            'price' => ['type' => self::FLOAT, 'default' => 0.00],
-            'order' => ['type' => self::UINT, 'default' => 0],
-            'enabled' => ['type' => self::BOOL, 'default' => false]
+            'user_id' => ['type' => self::UINT, 'nullable' => false],
+            'plan_id' => ['type' => self::UINT, 'nullable' => false],
+            'username' => ['type' => self::STR, 'unique' => true, 'required' => true, 'maxLength' => 50],
+            'domain' => ['type' => self::STR, 'required' => true],
+            'status' => ['type' => self::STR, 'required' => true],
+            'period' => ['type' => self::STR, 'required' => true],
         ];
 
         $structure->getters = [];
 
         $structure->relations = [
-            'UserPackages' => [
-                'entity' => 'Host2x\Core:UserPackage',
-                'type' => self::TO_MANY,
-                'conditions' => [
-                    ['package_id', '=', '$package_id']
-                ]
+            'User' => [
+                'entity' => 'XF:User',
+                'type' => self::TO_ONE,
+                'conditions' => 'user_id',
+                'primary' => true
             ],
-            'Servers' => [
-                'entity' => 'Host2x\Core:ServerPackage',
-                'type' => self::TO_MANY,
-                'conditions' => [
-                    ['package_id', '=', '$package_id']
-                ]
+
+            'Plan' => [
+                'entity' => 'Host2x\Core:Plan',
+                'type' => self::TO_ONE,
+                'conditions' => 'plan_id',
+                'primary' => true
             ],
         ];
 
         return $structure;
     }
+
 }

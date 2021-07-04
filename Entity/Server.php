@@ -16,7 +16,7 @@ use XF\Mvc\Entity\Structure;
  * @property boolean $is_premium
  *
  * RELATIONS
- * @property \XF\Mvc\Entity\AbstractCollection|Package[] Packages
+ * @property \XF\Mvc\Entity\AbstractCollection|Plan[] Plans
  */
 class Server extends Entity
 {
@@ -32,17 +32,19 @@ class Server extends Entity
             'type' => ['type' => self::STR, 'required' => true],
             'name' => ['type' => self::STR, 'required' => true],
             'hostname' => ['type' => self::STR, 'required' => true],
+            'port' => ['type' => self::INT, 'required' => true],
             'username' => ['type' => self::STR, 'required' => true],
             'password' => ['type' => self::STR, 'required' => false, 'nullable' => true],
             'apikey' => ['type' => self::STR, 'required' => false, 'nullable' => true],
-            'is_premium' => ['type' => self::BOOL, 'required' => false, 'default' => 0]
+            'is_premium' => ['type' => self::BOOL, 'required' => false, 'default' => 0],
+            'use_ssl' => ['type' => self::BOOL, 'required' => false, 'default' => 0]
         ];
 
         $structure->getters = [];
 
         $structure->relations = [
-            'Packages' => [
-                'entity' => 'Host2x\Core:ServerPackage',
+            'Plans' => [
+                'entity' => 'Host2x\Core:ServerPlan',
                 'type' => self::TO_MANY,
                 'conditions' => [
                     ['server_id', '=', '$server_id']
@@ -58,10 +60,10 @@ class Server extends Entity
     /**
      * @return \XF\Mvc\Entity\AbstractCollection
      */
-    public function getPackages()
+    public function getPlans()
     {
         $pivot = $this->Packages; // or whatever you named your pivot relation
-        return $pivot->pluckNamed('Package', 'package_id');
+        return $pivot->pluckNamed('Plan', 'plan_id');
     }
 
 }

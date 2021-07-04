@@ -6,40 +6,40 @@ use XF\Mvc\FormAction;
 use XF\Mvc\ParameterBag;
 use XF\Admin\Controller\AbstractController;
 
-class Package extends AbstractController
+class Plan extends AbstractController
 {
     public function actionIndex()
     {
         $viewParams = [
-            'packages' => $this->getPackageRepo()->getAllPackages()
+            'plans' => $this->getPlanRepo()->getAllPlans()
         ];
 
-        return $this->view('Host2x\Core:Package\Listing', 'host2x_core_package_list', $viewParams);
+        return $this->view('Host2x\Core:Plan\Listing', 'host2x_core_plan_list', $viewParams);
     }
 
-    protected function packageAddEdit(\Host2x\Core\Entity\Package $package)
+    protected function planAddEdit(\Host2x\Core\Entity\Plan $plan)
     {
         $viewParams = [
-            'package' => $package
+            'plan' => $plan
         ];
 
-        return $this->view('Host2x\Core:Package\Edit', 'host2x_core_package_edit', $viewParams);
+        return $this->view('Host2x\Core:Plan\Edit', 'host2x_core_plan_edit', $viewParams);
     }
 
     public function actionAdd()
     {
-        /** @var \Host2x\Core\Entity\Package $package */
-        $package = $this->em()->create('Host2x\Core:Package');
-        return $this->packageAddEdit($package);
+        /** @var \Host2x\Core\Entity\Plan $plan */
+        $plan = $this->em()->create('Host2x\Core:Plan');
+        return $this->planAddEdit($plan);
     }
 
     public function actionEdit(ParameterBag $params)
     {
-        $package = $this->assertPackageExists($params->package_id);
-        return $this->packageAddEdit($package);
+        $plan = $this->assertPlanExists($params->plan_id);
+        return $this->planAddEdit($plan);
     }
 
-    protected function packageSaveProcess(\Host2x\Core\Entity\Package $package)
+    protected function planSaveProcess(\Host2x\Core\Entity\Plan $plan)
     {
         $form = $this->formAction();
 
@@ -54,29 +54,29 @@ class Package extends AbstractController
             'enabled' => 'bool'
         ]);
 
-        $form->basicEntitySave($package, $input);
+        $form->basicEntitySave($plan, $input);
         return $form;
     }
 
     public function actionSave(ParameterBag $params)
     {
-        if ($params->package_id)
+        if ($params->plan_id)
         {
-            $package = $this->assertPackageExists($params->package_id);
+            $plan = $this->assertPlanExists($params->plan_id);
         }
         else
         {
-            /** @var \Host2x\Core\Entity\Package $package */
-            $package = $this->em()->create('Host2x\Core:Package');
+            /** @var \Host2x\Core\Entity\Plan $plan */
+            $plan = $this->em()->create('Host2x\Core:Plan');
         }
 
-        $this->packageSaveProcess($package)->run();
-        return $this->redirect($this->buildLink('host2x/packages') . $this->buildLinkHash($package->package_id));
+        $this->planSaveProcess($plan)->run();
+        return $this->redirect($this->buildLink('host2x/plans') . $this->buildLinkHash($plan->plan_id));
     }
 
     public function actionServers(ParameterBag $params)
     {
-        $package = $this->assertPackageExists($params->package_id);
+        $plan = $this->assertPlanExists($params->plan_id);
 
         $criteria = $this->filter('criteria', 'array');
         $order = $this->filter('order', 'str');
@@ -107,6 +107,7 @@ class Package extends AbstractController
         $filter = $this->filter('_xfFilter', [
             'name' => 'str',
         ]);
+
         if (strlen($filter['name']))
         {
             $finder->where('name', 'LIKE', $finder->escapeLike($filter['name']));
@@ -116,23 +117,30 @@ class Package extends AbstractController
         $servers = $finder->fetch();
 
         $viewParams = [
-            'package'  => $package,
+            'plan'  => $plan,
             'servers'       => $servers,
 
             'total'       => $total,
             'page'        => $page,
             'perPage'     => $perPage
         ];
-        return $this->view('Host2x\Core:Server\Listing', 'host2x_core_package_server', $viewParams);
+
+        return $this->view('Host2x\Core:Server\Listing', 'host2x_core_plan_server', $viewParams);
+    }
+
+    public function actionServersAdd(ParameterBag $params)
+    {
+        return $this->actionServersEdit($params);
     }
 
     public function actionServersEdit(ParameterBag  $params)
     {
-        $package = $this->assertPackageExists($params->package_id);
+        $plan = $this->assertPlanExists($params->plan_id);
 
         $serverId = $this->filter('server_id', 'uint');
         $server = $this->em()->find('Host2x\Core:Server', $serverId);
-        if(!$server){
+        
+        if (!$server) {
             return $this->error(\XF::phrase('host2x_core_server_not_found'));
         }
 
@@ -143,18 +151,18 @@ class Package extends AbstractController
      * @param array|string|null $with
      * @param null|string $phraseKey
      *
-     * @return \Host2x\Core\Entity\Package
+     * @return \Host2x\Core\Entity\Plan
      */
-    protected function assertPackageExists($id, $with = null, $phraseKey = null)
+    protected function assertPlanExists($id, $with = null, $phraseKey = null)
     {
-        return $this->assertRecordExists('Host2x\Core:Package', $id, $with, $phraseKey ?: 'host2x_core_package_not_found');
+        return $this->assertRecordExists('Host2x\Core:Plan', $id, $with, $phraseKey ?: 'host2x_core_plan_not_found');
     }
 
     /**
-     * @var \Host2x\Core\Repository\Package
+     * @var \Host2x\Core\Repository\Plan
      */
-    protected function getPackageRepo()
+    protected function getPlanRepo()
     {
-        return $this->repository('Host2x\Core:Package');
+        return $this->repository('Host2x\Core:Plan');
     }
 }

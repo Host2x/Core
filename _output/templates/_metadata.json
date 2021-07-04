@@ -1,23 +1,23 @@
 {
-    "admin/host2x_core_package_edit.html": {
+    "admin/host2x_core_plan_edit.html": {
         "version_id": 100001,
         "version_string": "1.0.0 Alpha",
-        "hash": "b71eb93157cff9c23b7f34e9df4d383e"
+        "hash": "744f791a00c19471f92b1fb4e7e58bc3"
     },
-    "admin/host2x_core_package_list.html": {
+    "admin/host2x_core_plan_list.html": {
         "version_id": 100001,
         "version_string": "1.0.0 Alpha",
-        "hash": "f3fb97c4b95994b5f6f5bb4f5d116ff5"
+        "hash": "51ed4cdb41099e34d8109aac860f6938"
     },
-    "admin/host2x_core_package_server.html": {
+    "admin/host2x_core_plan_server.html": {
         "version_id": 100001,
         "version_string": "1.0.0 Alpha",
-        "hash": "837f679667cdf3339c618384856cc4ef"
+        "hash": "7cc1c147ba5f8be184360714d3d51a1c"
     },
     "admin/host2x_core_server_edit.html": {
         "version_id": 100001,
         "version_string": "1.0.0 Alpha",
-        "hash": "812f5281c2235c6770b8f2e1559a8d2a"
+        "hash": "51765beb1e228361d59d3f3a7c2261a8"
     },
     "admin/host2x_core_server_list.html": {
         "version_id": 100001,

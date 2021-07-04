@@ -19,6 +19,8 @@
 			</xf:selectrow>
 			<xf:textboxrow name="name" value="{$server.name}" label="{{ phrase('name') }}" />
 			<xf:textboxrow name="hostname" value="{$server.hostname}" label="{{ phrase('host2x_core_hostname') }}" />
+			<xf:numberboxrow name="port" value="{$server.port}" min="0" step="1"
+				label="{{ phrase('host2x_core_server_port') }}" />
 			<xf:textboxrow name="username" value="{$server.username}" label="{{ phrase('host2x_core_username') }}" />
 			<xf:passwordboxrow name="password" value="{$server.password}" label="{{ phrase('password') }}"
 				explain="{{ phrase('host2x_core_password_change') }}"/>
@@ -27,7 +29,11 @@
 					<xf:option value="1"
 						label="{{ phrase('host2x_core_is_premium') }}"
 						hint="{{ phrase('host2x_core_make_premium') }}" />
-				</xf:checkboxrow>
+			</xf:checkboxrow>
+			<xf:checkboxrow name="use_ssl" value="{$server.use_ssl}">
+					<xf:option value="1"
+						label="{{ phrase('host2x_core_server_use_ssl') }}"/>
+			</xf:checkboxrow>
 			<xf:submitrow sticky="true" icon="save" data-ajax-redirect="{{ $server.isInsert() ? '1' : '0' }}">
 				<xf:html>
 					<xf:button type="submit" icon="save" name="exit">{{ phrase('save_and_exit') }}</xf:button>

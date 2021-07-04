@@ -13,9 +13,9 @@ use XF\Mvc\Entity\Structure;
  *
  * RELATIONS
  * @property Server Server
- * @property Package Package
+ * @property Plan Package
  */
-class ServerPackage extends AbstractFieldMap
+class ServerPlan extends AbstractFieldMap
 {
     public static function getContainerKey()
     {
@@ -24,13 +24,13 @@ class ServerPackage extends AbstractFieldMap
 
     public static function getStructure(Structure $structure)
     {
-        $structure->table = 'host2x_server_subdomains';
-        $structure->shortName = 'Host2x\Core:ServerPackage';
-        $structure->primaryKey = ['server_id', 'package_id'];
+        $structure->table = 'host2x_server_plans';
+        $structure->shortName = 'Host2x\Core:ServerPlan';
+        $structure->primaryKey = ['server_id', 'plan_id'];
 
         $structure->columns = [
             'server_id' => ['type' => self::UINT, 'nullable' => false],
-            'package_id' => ['type' => self::UINT, 'nullable' => false]
+            'plan_id' => ['type' => self::UINT, 'nullable' => false]
         ];
 
         $structure->getters = [];
@@ -43,10 +43,10 @@ class ServerPackage extends AbstractFieldMap
                 'primary' => true
             ],
 
-            'Package' => [
-                'entity' => 'Host2x\Core:Package',
+            'Plan' => [
+                'entity' => 'Host2x\Core:Plan',
                 'type' => self::TO_ONE,
-                'conditions' => 'package_id',
+                'conditions' => 'plan_id',
                 'primary' => true
             ],
         ];

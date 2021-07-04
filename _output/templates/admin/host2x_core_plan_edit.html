@@ -1,0 +1,45 @@
+<xf:if is="$plan.isInsert()">
+	<xf:title>{{ phrase('host2x_core_add_plan') }}</xf:title>
+<xf:else />
+	<xf:title>{{ phrase('host2x_core_edit_plan:') }} {$plan.name}</xf:title>
+</xf:if>
+
+<xf:pageaction if="$plan.isUpdate()">
+	<xf:button href="{{ link('host2x/plans/delete', $plan) }}" icon="delete" overlay="true" />
+</xf:pageaction>
+
+<xf:form action="{{ link('host2x/plans/save', $plan) }}" ajax="true" class="block">
+	<div class="block-container">
+		<div class="block-body">
+			<xf:selectrow name="type" value="{$plan.type}"
+					label="{{ phrase('host2x_core_type') }}"
+					class="input--autoSize">
+				<xf:option value="Free" label="Free" />
+				<xf:option value="Paid" label="Paid" />
+				<xf:option value="P2H" label="P2H" />
+			</xf:selectrow>
+			<xf:textboxrow name="name" value="{$plan.name}" label="{{ phrase('name') }}" />
+			<xf:textarearow name="description" value="{$plan.description}" autosize="true"
+				label="{{ phrase('description') }}"
+				hint="{{ phrase('you_may_use_html') }}"
+				explain="{{ phrase('host2x_core_description_explain') }}" />
+			<xf:numberboxrow name="required_posts" value="{$plan.required_posts}" min="0" step="1"
+				label="{{ phrase('host2x_core_required_posts') }}" />
+			<xf:numberboxrow name="monthly_posts" value="{$plan.monthly_posts}" min="0" step="1"
+				label="{{ phrase('host2x_core_monthly_posts') }}" />
+			<xf:textboxrow name="price" value="{{ $plan.price ?: 0 }}" label="{{ phrase('cost') }}" />
+			<xf:numberboxrow name="order" value="{$plan.order}" min="0" step="1"
+				label="{{ phrase('display_order') }}" />
+			<xf:checkboxrow name="enabled" value="{$plan.enabled}">
+					<xf:option value="1"
+						label="{{ phrase('enabled') }}"
+						hint="{{ phrase('host2x_core_plan_enable') }}" />
+				</xf:checkboxrow>
+			<xf:submitrow sticky="true" icon="save" data-ajax-redirect="{{ $plan.isInsert() ? '1' : '0' }}">
+				<xf:html>
+					<xf:button type="submit" icon="save" name="exit">{{ phrase('save_and_exit') }}</xf:button>
+				</xf:html>
+			</xf:submitrow>
+		</div>
+	</div>
+</xf:form>

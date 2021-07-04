@@ -1,11 +1,11 @@
 {
     "route_type": "admin",
     "route_prefix": "host2x",
-    "sub_name": "packages",
-    "format": "packages/:int<package_id,name>/",
+    "sub_name": "plans",
+    "format": "plans/:int<plan_id,name>/",
     "build_class": "",
     "build_method": "",
-    "controller": "Host2x\\Core:Package",
+    "controller": "Host2x\\Core:Plan",
     "context": "",
     "action_prefix": ""
 }

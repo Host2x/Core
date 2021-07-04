@@ -6,30 +6,16 @@ use XF\Mvc\Entity\Repository;
 
 class Package extends Repository
 {
-    public function getAllPackages($with = null)
+    public function findPackagesForUser(int $userId = null)
     {
-        $finder = $this->finder('Host2x\Core:Package')
-            ->order('order');
-
-        if ($with)
-        {
-            $finder->with($with);
+        if ($userId === null) {
+            $userId = \XF::visitor()->user_id;
         }
+        $userId = intval($userId);
 
-        return $finder->fetch();
-    }
-
-    public function getEnabledPackages($with = null)
-    {
         $finder = $this->finder('Host2x\Core:Package')
-            ->where('enabled', '=', true)
-            ->order('order');
+            ->where('user_id', '=', $userId);
 
-        if ($with)
-        {
-            $finder->with($with);
-        }
-
-        return $finder->fetch();
+        return $finder;
     }
 }

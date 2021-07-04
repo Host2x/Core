@@ -7,7 +7,7 @@ use XF\Pub\Controller\AbstractController;
 class ClientArea extends AbstractController
 {
     public function actionIndex() {
-        /** @var \Host2x\Core\Repository\UserPackage $repo */
+        /** @var \Host2x\Core\Repository\Package $repo */
         $repo = $this->repository('Host2x\Core:UserPackage');
         $finder = $repo->findPackagesForUser();
         $packageCount = $finder->total();

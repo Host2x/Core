@@ -10,7 +10,7 @@ class Package extends AbstractController
         $page = $this->filterPage();
         $perPage = 5;
 
-        /** @var \Host2x\Core\Repository\UserPackage $repo */
+        /** @var \Host2x\Core\Repository\Package $repo */
         $repo = $this->repository('Host2x\Core:UserPackage');
         $finder = $repo->findPackagesForUser()
             ->limit($perPage * 3);

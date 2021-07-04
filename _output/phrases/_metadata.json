@@ -5,11 +5,11 @@
         "version_string": "1.0.0 Alpha",
         "hash": "2b5bc734ffdd5f02ceca2d2536894f43"
     },
-    "admin_navigation.host2xPackages.txt": {
+    "admin_navigation.host2xPlans.txt": {
         "global_cache": false,
         "version_id": 100001,
         "version_string": "1.0.0 Alpha",
-        "hash": "27fe4eb3edbaff8f250e2d51f7462681"
+        "hash": "6956cc1de059bbd65d8454842d240841"
     },
     "admin_navigation.host2xServers.txt": {
         "global_cache": false,
@@ -23,11 +23,11 @@
         "version_string": "1.0.0 Alpha",
         "hash": "51e2fe0e1a41fe9fec46ae2129bb8513"
     },
-    "host2x_core_add_package.txt": {
+    "host2x_core_add_plan.txt": {
         "global_cache": false,
         "version_id": 100001,
         "version_string": "1.0.0 Alpha",
-        "hash": "26b9af388b364f6c6690bf08194618e1"
+        "hash": "b46224c030998482f4c7a54e99492165"
     },
     "host2x_core_add_server.txt": {
         "global_cache": false,
@@ -53,11 +53,11 @@
         "version_string": "1.0.0 Alpha",
         "hash": "343756da9a76fad2a8b5352aefd5cecb"
     },
-    "host2x_core_edit_package.txt": {
+    "host2x_core_edit_plan.txt": {
         "global_cache": false,
         "version_id": 100001,
         "version_string": "1.0.0 Alpha",
-        "hash": "7cd822c66af673c26fcfd5dcae032de0"
+        "hash": "42686bcbddc84888940d862b87743f45"
     },
     "host2x_core_edit_server.txt": {
         "global_cache": false,
@@ -95,35 +95,35 @@
         "version_string": "1.0.0 Alpha",
         "hash": "936780330ece5597221905dc86a6c68b"
     },
-    "host2x_core_package_enable.txt": {
-        "global_cache": false,
-        "version_id": 100001,
-        "version_string": "1.0.0 Alpha",
-        "hash": "dc50c25cf85fb13259c792b4e1da34ea"
-    },
-    "host2x_core_package_not_found.txt": {
-        "global_cache": false,
-        "version_id": 100001,
-        "version_string": "1.0.0 Alpha",
-        "hash": "abc373de139825d2a5886f5a86ddc3c2"
-    },
-    "host2x_core_package_servers.txt": {
-        "global_cache": false,
-        "version_id": 100001,
-        "version_string": "1.0.0 Alpha",
-        "hash": "1130920498f995bf71788916712bfbe8"
-    },
-    "host2x_core_packages.txt": {
-        "global_cache": false,
-        "version_id": 100001,
-        "version_string": "1.0.0 Alpha",
-        "hash": "27fe4eb3edbaff8f250e2d51f7462681"
-    },
     "host2x_core_password_change.txt": {
         "global_cache": false,
         "version_id": 100001,
         "version_string": "1.0.0 Alpha",
         "hash": "a44a4b3984d5f0d5402ee896669d82a9"
+    },
+    "host2x_core_plan_enable.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "40a7ad546d87260e30800f3c86b709e4"
+    },
+    "host2x_core_plan_not_found.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "26e6b1e332a9ab419833685762ad1ecc"
+    },
+    "host2x_core_plan_servers.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "57b680f5a6e235cc09bf89fb1c4c1dd0"
+    },
+    "host2x_core_plans.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "6956cc1de059bbd65d8454842d240841"
     },
     "host2x_core_required_posts.txt": {
         "global_cache": false,
@@ -136,6 +136,18 @@
         "version_id": 100001,
         "version_string": "1.0.0 Alpha",
         "hash": "128f3d64d5a0f38b2207ceec4e4266a5"
+    },
+    "host2x_core_server_port.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "60aaf44d4b562252c04db7f98497e9aa"
+    },
+    "host2x_core_server_use_ssl.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "29efc1c532964b2a4e4f4cf9dbd36019"
     },
     "host2x_core_servers.txt": {
         "global_cache": false,

@@ -26,21 +26,23 @@ class Setup extends AbstractSetup
         $schemaManager->createTable('host2x_servers', function (Create $table) {
             $table->checkExists(true);
             $table->addColumn('server_id', 'int')->autoIncrement();
-            $table->addColumn('type', 'enum')->values(['WHM','DirectAdmin']);
+            $table->addColumn('type', 'enum')->values(['WHM','DirectAdmin'])->setDefault('DirectAdmin');
             $table->addColumn('name', 'varchar', 255)->nullable(false);
             $table->addColumn('hostname', 'varchar', 255)->nullable(false);
+            $table->addColumn('port', 'int')->setDefault(2222);
             $table->addColumn('username', 'varchar', 255)->nullable(false);
             $table->addColumn('password', 'varchar', 255)->nullable(true);
             $table->addColumn('apikey', 'varchar', 255)->nullable(true);
             $table->addColumn('is_premium', 'bool')->setDefault(0);
+            $table->addColumn('use_ssl', 'bool')->setDefault(0);
 
             $table->addPrimaryKey('server_id');
         });
 
-        $schemaManager->createTable('host2x_packages', function (Create $table){
+        $schemaManager->createTable('host2x_plans', function (Create $table){
             $table->checkExists(true);
-            $table->addColumn('package_id', 'int')->autoIncrement();
-            $table->addColumn('type', 'enum')->values(['Free', 'Paid', 'P2H']);
+            $table->addColumn('plan_id', 'int')->autoIncrement();
+            $table->addColumn('type', 'enum')->values(['Free', 'Paid', 'P2H'])->setDefault('Free');
             $table->addColumn('name', 'varchar', 255)->nullable(false);
             $table->addColumn('description','mediumtext')->nullable(false);
             $table->addColumn('required_posts', 'int')->setDefault(0);
@@ -48,7 +50,7 @@ class Setup extends AbstractSetup
             $table->addColumn('price', 'decimal', '10,2')->setDefault(0.00);
             $table->addColumn('order', 'int')->setDefault(0);
             $table->addColumn('enabled', 'bool')->setDefault(0);
-            $table->addPrimaryKey('package_id');
+            $table->addPrimaryKey('plan_id');
         });
 
         $schemaManager->createTable('host2x_subdomains', function (Create $table){
@@ -68,33 +70,33 @@ class Setup extends AbstractSetup
             $table->addPrimaryKey(['server_id', 'subdomain_id']);
         });
 
-        $schemaManager->createTable('host2x_server_packages', function (Create $table) {
+        $schemaManager->createTable('host2x_server_plans', function (Create $table) {
             $table->checkExists(true);
             $table->addColumn('server_id', 'int')->unsigned()->nullable(false);
-            $table->addColumn('package_id', 'int')->unsigned()->nullable(false);
+            $table->addColumn('plan_id', 'int')->unsigned()->nullable(false);
 
-            $table->addPrimaryKey(['server_id', 'package_id']);
+            $table->addPrimaryKey(['server_id', 'plan_id']);
         });
 
-        $schemaManager->createTable('host2x_user_packages', function (Create $table){
+        $schemaManager->createTable('host2x_packages', function (Create $table){
             $table->checkExists(true);
-            $table->addColumn('user_package_id', 'int')->autoIncrement();
+            $table->addColumn('package_id', 'int')->autoIncrement();
             $table->addColumn('user_id', 'int')->unsigned(true)->nullable(false);
-            $table->addColumn('package_id', 'int')->unsigned(true)->nullable();
+            $table->addColumn('plan_id', 'int')->unsigned(true)->nullable();
             $table->addColumn('username', 'varchar', 8)->nullable(false);
             $table->addColumn('domain', 'varchar', 255)->nullable(false);
             $table->addColumn('status', 'enum')->values([
                 'Pending', 'Active', 'Suspended', 'Cancelled', 'Terminated'
             ])->setDefault('Pending');
-            $table->addColumn('billing_type', 'enum')->values([
+            $table->addColumn('period', 'enum')->values([
                 'Monthly', 'Quarterly', 'Biquarterly', 'Yearly'
             ]);
 
-            $table->addPrimaryKey('user_package_id');
+            $table->addPrimaryKey('package_id');
             $table->addKey('user_id', 'user_idx');
         });
 
-        $schemaManager->createTable('host2x_invoices', function (Create $table){
+        $schemaManager->createTable('host2x_invoices', function (Create $table) {
             $table->checkExists(true);
             $table->addColumn('invoice_id', 'int')->autoIncrement();
             $table->addColumn('user_id', 'int')->unsigned(true)->nullable(false);
@@ -117,11 +119,11 @@ class Setup extends AbstractSetup
 
         // drop our tables
         $schemaManager->dropTable('host2x_invoices');
-        $schemaManager->dropTable('host2x_user_packages');
-        $schemaManager->dropTable('host2x_server_packages');
+        $schemaManager->dropTable('host2x_packages');
+        $schemaManager->dropTable('host2x_server_plans');
         $schemaManager->dropTable('host2x_server_subdomains');
         $schemaManager->dropTable('host2x_subdomains');
-        $schemaManager->dropTable('host2x_packages');
+        $schemaManager->dropTable('host2x_plans');
         $schemaManager->dropTable('host2x_servers');
     }
 

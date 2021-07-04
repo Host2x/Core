@@ -1,7 +1,7 @@
 {
     "parent_navigation_id": "host2xCore",
     "display_order": 2,
-    "link": "host2x/packages",
+    "link": "host2x/plans",
     "icon": "",
     "admin_permission_id": "",
     "debug_only": false,
