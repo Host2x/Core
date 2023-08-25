@@ -119,7 +119,6 @@ class Plan extends AbstractController
         $viewParams = [
             'plan'  => $plan,
             'servers'       => $servers,
-
             'total'       => $total,
             'page'        => $page,
             'perPage'     => $perPage
@@ -130,10 +129,16 @@ class Plan extends AbstractController
 
     public function actionServersAdd(ParameterBag $params)
     {
-        return $this->actionServersEdit($params);
+        $plan = $this->assertPlanExists($params->plan_id);
+
+        $viewParams = [
+            'plan' => $plan,
+        ];
+
+        return $this->view('Host2x\Core:Plan\Servers\Add', 'host2x_core_plan_server_edit', $viewParams);
     }
 
-    public function actionServersEdit(ParameterBag  $params)
+    public function actionServersEdit(ParameterBag $params)
     {
         $plan = $this->assertPlanExists($params->plan_id);
 
@@ -144,6 +149,48 @@ class Plan extends AbstractController
             return $this->error(\XF::phrase('host2x_core_server_not_found'));
         }
 
+        $viewParams = [
+            'plan' => $plan,
+            'server' => $server
+        ];
+
+        return $this->view('Host2x\Core:Plan\Servers\Edit', 'host2x_core_plan_server_edit', $viewParams);
+    }
+
+    public function actionServersSave(ParameterBag $params) {
+        $plan = $this->assertPlanExists($params->plan_id);
+
+        $serverId = $this->filter('server_id', 'uint');
+        if($serverId){
+            $server = $this->em()->find('Host2x\Core:Server', $serverId);
+        }else{
+            $serverName = $this->filter('name', 'str');
+            $server = $this->finder('Host2x\Core:Server')
+                ->where('name', $serverName)
+                ->fetchOne();
+        }
+
+        if (!$server) {
+            return $this->error(\XF::phrase('host2x_core_server_not_found'));
+        }
+
+        $isNew = true;
+        $servers = $this->getServerPlanRepo()->getPlanServers($plan->plan_id);
+        foreach ($servers as $planServer) {
+            if ($planServer->server_id == $server->server_id) {
+                $isNew = false;
+            }
+        }
+
+        if ($isNew) {
+            // associate the plan
+            /** @var \Host2x\Core\Entity\ServerPlan $serverPlan */
+            $serverPlan = $this->em()->create('Host2x\Core:ServerPlan');
+            $serverPlan->plan_id = $plan->plan_id;
+            $serverPlan->server_id = $server->server_id;
+        }
+
+        return $this->redirect($this->buildLink('host2x/plans/servers', $plan));
     }
 
     /**
@@ -164,5 +211,13 @@ class Plan extends AbstractController
     protected function getPlanRepo()
     {
         return $this->repository('Host2x\Core:Plan');
+    }
+
+    /**
+     * @var \Host2x\Core\Repository\ServerPlan
+     */
+    protected function getServerPlanRepo()
+    {
+        return $this->repository('Host2x\Core:ServerPlan');
     }
 }

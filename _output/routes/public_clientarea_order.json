@@ -1,11 +1,11 @@
 {
     "route_type": "public",
     "route_prefix": "clientarea",
-    "sub_name": "",
-    "format": "",
+    "sub_name": "order",
+    "format": "order/:int<plan_id,name>/",
     "build_class": "",
     "build_method": "",
-    "controller": "Host2x\\Core:ClientArea",
+    "controller": "Host2x\\Core:Order",
     "context": "host2xClientArea",
     "action_prefix": ""
 }

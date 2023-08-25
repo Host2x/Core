@@ -1,0 +1,29 @@
+<xf:if is="!$server.server_id">
+	<xf:title>{{ phrase('host2x_core_add_server') }}</xf:title>
+<xf:else />
+	<xf:title>{{ phrase('host2x_core_edit_server:') }} {$server.name}</xf:title>
+</xf:if>
+
+<xf:pageaction if="$server.server_id">
+	<xf:button href="{{ link('host2x/plans/servers/remove', $plan, {'server_id': $server.server_id}) }}" icon="delete" overlay="true" />
+</xf:pageaction>
+
+<xf:form action="{{ link('host2x/plans/servers/save', $plan) }}" ajax="true" class="block">
+
+	<div class="block-container">
+		<div class="block-body">
+			<xf:if is="{$server.server_id}">
+				<xf:formrow label="{{ phrase('host2x_core_server') }}">
+					{$server.name}
+				</xf:formrow>
+			<xf:else />
+				<xf:textboxrow name="name" ac="single" value="{$server.name}"
+					label="{{ phrase('host2x_core_server') }}" />
+			</xf:if>
+		</div>
+
+		<xf:hiddenval name="server_id">{$server.server_id}</xf:hiddenval>
+		<xf:submitrow icon="save" sticky="true" />
+	</div>
+
+</xf:form>

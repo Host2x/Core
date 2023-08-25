@@ -14,9 +14,9 @@ class ServerPlan extends Repository
         return $finder->fetch();
     }
 
-    public function getPlanServers(int $package_id) {
+    public function getPlanServers(int $plan_id) {
         $finder = $this->finder('Host2x\Core:ServerPlan')
-            ->where('package_id', $package_id);
+            ->where('plan_id', $plan_id);
 
         return $finder->fetch();
     }

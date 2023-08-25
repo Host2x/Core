@@ -53,6 +53,12 @@
         "version_string": "1.0.0 Alpha",
         "hash": "343756da9a76fad2a8b5352aefd5cecb"
     },
+    "host2x_core_domain.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "eae639a70006feff484a39363c977e24"
+    },
     "host2x_core_edit_plan.txt": {
         "global_cache": false,
         "version_id": 100001,
@@ -131,6 +137,12 @@
         "version_string": "1.0.0 Alpha",
         "hash": "196492f515246d9e758d9d12a38cc6ee"
     },
+    "host2x_core_server.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "9aa1b03934893d7134a660af4204f2a9"
+    },
     "host2x_core_server_not_found.txt": {
         "global_cache": false,
         "version_id": 100001,
@@ -184,5 +196,17 @@
         "version_id": 100001,
         "version_string": "1.0.0 Alpha",
         "hash": "f6039d44b29456b20f8f373155ae4973"
+    },
+    "nav.host2xClientArea.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "01500efd300172ada2be6ab539756852"
+    },
+    "nav.host2xOrder.txt": {
+        "global_cache": false,
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "a240fa27925a635b08dc28c9e4f9216d"
     }
 }

@@ -9,7 +9,7 @@ use XF\Mvc\Entity\Structure;
 /**
  * COLUMNS
  * @property int $server_id
- * @property int $package_id
+ * @property int $plan_id
  *
  * RELATIONS
  * @property Server Server

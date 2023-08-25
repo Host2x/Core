@@ -1,29 +1,29 @@
-<xf:h1>Packages</xf:h1>
-<xf:if is="$packages is not empty">
-	<xf:foreach loop="$packages" value="$package">
+<xf:title>Plans</xf:title>
+<xf:if is="$plans is not empty">
+	<xf:foreach loop="$plans" value="$plan">
 		<xf:macro name="thread_block"
-			arg-package="{$package}"		
+			arg-plan="{$plan}"		
 		/>
 	</xf:foreach>
 
 	<xf:pagenav page="{$page}" perpage="{$perPage}" total="{$total}" link="clientarea" wrapperclass="block" />
 <xf:else />
-	<div class="blockMessage">You have no packages yet.</div>
+	<div class="blockMessage">There are no plans available yet</div>
 </xf:if>
 
-<xf:macro name="thread_block" arg-package="!">
+<xf:macro name="thread_block" arg-plan="!">
 	<xf:css src="message.less" />
 
 	<div class="block">
 		<div class="block-container" data-xf-init="lightbox">
-			<h4 class="block-header"><a href="">{$package.Plan.name}</a></h4>
+			<h4 class="block-header">{$plan.name}</h4>
 			<div class="block-body">
 				<div class="block-row">
-					{$package.status}
+					<p>{$plan.description}</p>
 				</div>
 			</div>
 			<div class="block-footer">
-				<a href="">Manage Package...</a>
+				<a href="{{ link('clientarea/order/step1', $plan) }}">Order</a>
 			</div>
 		</div>
 	</div>

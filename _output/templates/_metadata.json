@@ -14,6 +14,11 @@
         "version_string": "1.0.0 Alpha",
         "hash": "7cc1c147ba5f8be184360714d3d51a1c"
     },
+    "admin/host2x_core_plan_server_edit.html": {
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "fa919e7cbd0e3ac744379adae1262740"
+    },
     "admin/host2x_core_server_edit.html": {
         "version_id": 100001,
         "version_string": "1.0.0 Alpha",
@@ -39,9 +44,19 @@
         "version_string": "1.0.0 Alpha",
         "hash": "2d689eaf64a560b5e98ae5b1a03f56f8"
     },
+    "public/host2x_core_clientarea_order_step1.html": {
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "fecf2d40cfe778f630a7fcd7d2d86dda"
+    },
     "public/host2x_core_clientarea_packages.html": {
         "version_id": 100001,
         "version_string": "1.0.0 Alpha",
-        "hash": "a5c4ae49c4e9cbad9291320573cca2de"
+        "hash": "7ca5d4d5d81e3ad8e6c39c55d4167ef7"
+    },
+    "public/host2x_core_clientarea_plans.html": {
+        "version_id": 100001,
+        "version_string": "1.0.0 Alpha",
+        "hash": "edf8470728335a6b98d8f1dfbae26523"
     }
 }

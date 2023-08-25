@@ -6,6 +6,19 @@ use XF\Mvc\Entity\Repository;
 
 class Plan extends Repository
 {
+    public function getPlanById($id, $with = null)
+    {
+        $finder = $this->finder('Host2x\Core:Plan')
+            ->where('plan_id', '=', $id);
+
+        if ($with)
+        {
+            $finder->with($with);
+        }
+
+        return $finder->fetch();
+    }
+
     public function getAllPlans($with = null)
     {
         $finder = $this->finder('Host2x\Core:Plan')
@@ -30,6 +43,6 @@ class Plan extends Repository
             $finder->with($with);
         }
 
-        return $finder->fetch();
+        return $finder;
     }
 }

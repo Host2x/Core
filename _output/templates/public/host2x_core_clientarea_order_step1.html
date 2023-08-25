@@ -1,0 +1,34 @@
+<xf:title>Order: {$plan.name}</xf:title>
+
+<xf:form action="{{ link('clientarea/order/complete', $plan) }}" ajax="true" class="block">
+    <!-- does this plan have subdomains? -->
+    <div class="block-container">
+        <div class="block-body">
+            <xf:if is="$subdomains is not empty">
+                <xf:checkboxrow name="useSubdomain">
+                    <xf:option value="1"
+                               label="Use Subdomain" />
+                </xf:checkboxrow>
+                <xf:selectrow name="subdomain"
+                              label="{{ phrase('host2x_core_subdomain') }}"
+                              class="input--autoSize">
+                    <xf:foreach loop="$subdomains" value="$subdomain">
+                        <xf:option value="{$subdomain}" label="{$subdomain}" />
+                    </xf:foreach>
+                </xf:selectrow>
+            </xf:if>
+            <xf:textboxrow name="domain" label="{{ phrase('host2x_core_domain') }}" />
+            <xf:if is="$paid">
+                <xf:selectrow name="period"
+                              label="Period"
+                              class="input--autoSize">
+                    <xf:option value="Monthly" label="Monthly" />
+                    <xf:option value="Quarterly" label="Quarterly" />
+                    <xf:option value="Semi-Annually" label="Semi-Annually" />
+                    <xf:option value="Annually" label="Annually" />
+                </xf:selectrow>
+            </xf:if>
+            <xf:submitrow sticky="true" icon="save"></xf:submitrow>
+        </div>
+    </div>
+</xf:form>

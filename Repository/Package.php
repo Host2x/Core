@@ -18,4 +18,18 @@ class Package extends Repository
 
         return $finder;
     }
+
+    public function findByDomain(string $domain) {
+        $finder = $this->finder('Host2x\Core:Package')
+            ->where('domain', '=', $domain);
+
+        return $finder;
+    }
+
+    public function findByUsername(string $username) {
+        $finder = $this->finder('Host2x\Core:Package')
+            ->where('username', '=', $username);
+
+        return $finder;
+    }
 }

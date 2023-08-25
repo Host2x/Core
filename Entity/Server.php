@@ -17,6 +17,7 @@ use XF\Mvc\Entity\Structure;
  *
  * RELATIONS
  * @property \XF\Mvc\Entity\AbstractCollection|Plan[] Plans
+ * @property \XF\Mvc\Entity\AbstractCollection|ServerSubdomain[] Subdomains
  */
 class Server extends Entity
 {
@@ -45,6 +46,14 @@ class Server extends Entity
         $structure->relations = [
             'Plans' => [
                 'entity' => 'Host2x\Core:ServerPlan',
+                'type' => self::TO_MANY,
+                'conditions' => [
+                    ['server_id', '=', '$server_id']
+                ]
+            ],
+
+            'Subdomains' => [
+                'entity' => 'Host2x\Core:ServerSubdomain',
                 'type' => self::TO_MANY,
                 'conditions' => [
                     ['server_id', '=', '$server_id']
